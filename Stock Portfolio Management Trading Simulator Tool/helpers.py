@@ -32,7 +32,7 @@ def login_required(f):
 
 
 def lookup(symbol):
-    api_key = "JM17PQOFPGBYE9DH"
+    api_key = "ADD YOUR API KEY"
     alpha_vantage_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol.upper()}&interval=5min&apikey={api_key}"
 
     try:
