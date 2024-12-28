@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Credit
+{% endblock %}
+
+{% block content %}
+    <h2>Add Credit</h2>
+
+    <form action="/add_cash" method="post">
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter amount to add" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Add Credit</button>
+    </form>
+{% endblock %}

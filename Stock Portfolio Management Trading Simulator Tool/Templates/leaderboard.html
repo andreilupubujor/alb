@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Leaderboard</h1>
+
+        {% if leaderboard %}
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Rank</th>
+                            <th>Username</th>
+                            <th>Total Portfolio Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in leaderboard %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.total_value | usd }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="alert alert-warning">No leaderboard data available.</p>
+        {% endif %}
+    </div>
+{% endblock %}

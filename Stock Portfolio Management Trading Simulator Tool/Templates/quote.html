@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Get a Stock Quote</h2>
+
+        <form action="{{ url_for('quote') }}" method="post" class="mb-4">
+            <div class="mb-3">
+                <label for="symbol" class="form-label">Stock Symbol:</label>
+                <input type="text" name="symbol" id="symbol" class="form-control" placeholder="Enter stock symbol" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100">Get Quote</button>
+        </form>
+
+    <!-- Display Quote if Available -->
+        {% if quote %}
+            <div class="quote-result bg-light p-4 rounded shadow-sm">
+                <h3>{{ quote['name'] }} ({{ quote['symbol'] }})</h3>
+                <p><strong>Price:</strong> {{ quote['price'] | usd }}</p>
+                {% if quote['sustainability_score'] %}
+                    <p><strong>Sustainability Score:</strong> {{ quote['sustainability_score'] }}</p>
+                {% else %}
+                    <p><strong>Sustainability Score:</strong> Not available</p>
+                {% endif %}
+            </div>
+        {% else %}
+            <p class="text-muted mt-3">No quote data available.</p>
+        {% endif %}
+    </div>
+{% endblock %}

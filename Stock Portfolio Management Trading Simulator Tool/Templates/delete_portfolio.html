@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Portfolio
+{% endblock %}
+
+{% block content %}
+    <h1>Delete Portfolio</h1>
+    <p>Select a portfolio to delete.</p>
+
+<!-- Portfolio Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Theme</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for portfolio in portfolios %}
+                <tr>
+                    <td>{{ portfolio.theme }}</td>
+                    <td>
+                <!-- Form to submit the portfolio_id to delete -->
+                        <form action="{{ url_for('delete_portfolio') }}" method="POST" style="display:inline;">
+                            <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete the portfolio titled \" {{ portfolio.theme }}\"?')">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('view_portfolios') }}" class="btn btn-secondary">Back to Portfolios</a>
+{% endblock %}

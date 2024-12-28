@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Portfolios
+{% endblock %}
+
+{% block content %}
+    <h1 class="my-4">Your Portfolios</h1>
+    <p class="lead">Below are your portfolios. You can choose to delete one or view its stocks.</p>
+
+    <div class="row">
+        {% for portfolio in portfolios %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>{{ portfolio.theme }} (ID: {{ portfolio.id }})</strong>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">View or manage the stocks in this portfolio.</p>
+                <!-- Link to view stocks in the portfolio -->
+                        <a href="{{ url_for('view_stocks', portfolio_id=portfolio.id) }}" class="btn btn-info btn-block mb-2">
+                            View Stocks
+                        </a>
+
+                <!-- Link to delete the portfolio -->
+                        <a href="{{ url_for('delete_portfolio', portfolio_id=portfolio.id) }}" class="btn btn-danger btn-block">
+                            Delete Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

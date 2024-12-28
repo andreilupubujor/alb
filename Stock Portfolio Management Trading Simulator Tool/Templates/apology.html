@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block content %}
+    <div class="container text-center mt-5">
+    <!-- Error Message -->
+        <h1 class="display-4 text-danger mb-4">{{ message }}</h1>
+
+    <!-- Back Button -->
+        <p>
+            <button class="btn btn-primary btn-lg mt-3" onclick="history.back()">Go Back</button>
+        </p>
+    </div>
+{% endblock %}

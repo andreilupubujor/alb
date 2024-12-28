@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Portfolio
+{% endblock %}
+
+{% block content %}
+    <h1>Create Your Thematic Portfolio</h1>
+    <p>Choose a theme for your portfolio, and we will show you the relevant stocks.</p>
+
+    <form method="POST">
+        <div class="mb-3">
+            <label for="theme" class="form-label">Select a Theme</label>
+            <select class="form-select" id="theme" name="theme" required>
+                {% for theme in themes %}
+                    <option value="{{ theme }}">{{ theme }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Portfolio</button>
+    </form>
+{% endblock %}

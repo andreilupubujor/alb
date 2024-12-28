@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Stocks
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Buy Stocks</h1>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="symbol" class="form-label">Stock Symbol:</label>
+                <input type="text" class="form-control" name="symbol" id="symbol" required>
+                <div class="form-text">Enter the stock symbol you wish to buy (e.g., AAPL, GOOGL).</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="shares" class="form-label">Number of Shares:</label>
+                <input type="number" class="form-control" name="shares" id="shares" min="1" required>
+                <div class="form-text">Enter the number of shares you want to buy.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="portfolio_id" class="form-label">Select Portfolio:</label>
+                <select name="portfolio_id" id="portfolio_id" class="form-select" required>
+                    {% for portfolio in portfolios %}
+                        <option value="{{ portfolio.id }}">{{ portfolio.theme }}</option>
+                    {% endfor %}
+                </select>
+                <div class="form-text">Choose the portfolio where you want to add the stocks.</div>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-lg w-100">Buy Stocks</button>
+        </form>
+    </div>
+{% endblock %}

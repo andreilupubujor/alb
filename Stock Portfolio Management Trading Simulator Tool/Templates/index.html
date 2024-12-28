@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Your Account</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Company Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock.symbol }}</td>
+                    <td>{{ stock.name }}</td>
+                    <td>{{ stock.total_shares }}</td>
+                    <td>{{ stock.price | usd }}</td>
+                    <td>{{ stock.value | usd }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <th colspan="4">Cash</th>
+                <td>{{ cash | usd }}</td>
+            </tr>
+            <tr>
+                <th colspan="4">Grand Total</th>
+                <td>{{ grand_total | usd }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="/add_cash">Add Cash</a>
+    <a href="{{ url_for('reset') }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to reset your portfolio? This action cannot be undone!')">Reset Portfolio</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stocks in Portfolio: {{ portfolio.theme }}
+{% endblock %}
+
+{% block content %}
+    <h1>Stocks in Portfolio: {{ portfolio.theme }}</h1>
+
+    {% if stocks %}
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Total Shares</th>
+                    <th>Total Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock.symbol }}</td>
+                        <td>{{ stock.name }}</td>
+                        <td>{{ stock.price | usd }}</td> <!-- Format as USD -->
+                        <td>{{ stock.total_shares }}</td>
+                        <td>{{ (stock.total_shares * stock.price) | usd }}</td> <!-- Format total value as USD -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No stocks in this portfolio.</p>
+    {% endif %}
+
+    <a href="{{ url_for('view_portfolios') }}" class="btn btn-secondary">Back to Portfolios</a>
+{% endblock %}
