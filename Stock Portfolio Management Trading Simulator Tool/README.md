@@ -92,7 +92,7 @@ The app uses the following SQL tables to store data:
 * CS50 Library: The library provided by Harvard University's CS50 course, which includes functions for interacting with a SQLite database and handling user input.
 * SQLite: A lightweight relational database management system.
 
-## CS50 Knowledge Applied
+## Knowledge Applied
 ------------------------
 
 * SQL: The app uses SQL to interact with the SQLite database, including creating tables, inserting data, and querying data.
