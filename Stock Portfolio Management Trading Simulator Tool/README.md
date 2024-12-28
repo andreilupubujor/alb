@@ -1,6 +1,6 @@
 ## Stock Portfolio Management Trading Simulator Tool
 
-#### Brief: A web application for practicing stock trading.
+#### Brief: A web application for practicing stock trading and portofolio management.
 #### Video Demo:  Available at request
 #### Full Description:
 
