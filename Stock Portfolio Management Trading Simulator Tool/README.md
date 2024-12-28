@@ -1,8 +1,10 @@
-# Stock Portfolio Management Trading Simulator Tool
-#### Video Demo:  Available at request
-#### Description:
+## Stock Portfolio Management Trading Simulator Tool
 
-# Stock Portfolio Management Trading Simulator Tool
+#### Brief: A web application for practicing stock trading.
+#### Video Demo:  Available at request
+#### Full Description:
+
+### Stock Portfolio Management Trading Simulator Tool
 ==========================
 
 This web application is a comprehensive stock trading simulator designed to allow users to practice trading stocks and managing portofolio in a virtual environment. The app allows users to create an account, deposit virtual cash, buy and sell stocks based on real-time market data. Additionally, the app enables users to create and manage multiple portfolios, just like professional traders would in real life. Users can diversify their investments by creating separate portfolios for different investment strategies.
